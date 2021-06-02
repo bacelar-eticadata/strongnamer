@@ -1,6 +1,6 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>net461;netcoreapp2.1</TargetFrameworks>
+    <TargetFrameworks>net461;netcoreapp2.1;netstandard2.0</TargetFrameworks>
     <AssemblyOriginatorKeyFile>SharedKey.snk</AssemblyOriginatorKeyFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <SignAssembly>true</SignAssembly>
@@ -23,6 +23,7 @@
   <ItemGroup>
     <PackageReference Condition="'$(TargetFramework)' == 'net461' " Include="Microsoft.Build.Tasks.Core" Version="14.3" PrivateAssets="all" />
     <PackageReference Condition="'$(TargetFramework)' == 'netcoreapp2.1' " Include="Microsoft.Build.Tasks.Core" Version="15.1.548" PrivateAssets="all" />
+    <PackageReference Condition="'$(TargetFramework)' == 'netstandard2.0' " Include="Microsoft.Build.Tasks.Core" Version="15.1.548" PrivateAssets="all" />
   </ItemGroup>
   
   <ItemGroup>
@@ -30,6 +31,7 @@
     <None Include="SharedKey.snk" Pack="true" PackagePath="build" />
     <None Include="$(NuGetPackageRoot)mono.cecil\$(CecilVersion)\lib\net40\*.dll" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="build\net461" Visible="false" />
     <None Include="$(NuGetPackageRoot)mono.cecil\$(CecilVersion)\lib\netstandard2.0\*.dll" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="build\netcoreapp2.1" Visible="false" />
+    <None Include="$(NuGetPackageRoot)mono.cecil\$(CecilVersion)\lib\netstandard2.0\*.dll" CopyToOutputDirectory="PreserveNewest" Pack="true" PackagePath="build\netstandard2.0" Visible="false" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Mono.Cecil" Version="$(CecilVersion)" PrivateAssets="all" />
